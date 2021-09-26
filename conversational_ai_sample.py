@@ -1,11 +1,11 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelWithLMHead
 import torch
 
-# model_name = "microsoft/DialoGPT-large"
-model_name = "microsoft/DialoGPT-medium"
-# model_name = "microsoft/DialoGPT-small"
+# model_name = "dattam/DialoGPT-medium-TonyStarkBot"
+model_name = "AJ/DialoGPT-small-ricksanchez"
+  
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model = AutoModelWithLMHead.from_pretrained(model_name)
 
 # chatting 5 times with nucleus sampling & tweaking temperature
 for step in range(1000):
@@ -18,7 +18,7 @@ for step in range(1000):
     # generate a bot response
     chat_history_ids = model.generate(
         bot_input_ids,
-        max_length=1000,
+        max_length=10000,
         do_sample=True,
         top_p=0.95,
         top_k=0,
