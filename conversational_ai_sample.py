@@ -1,3 +1,9 @@
+###
+#
+# https://www.thepythoncode.com/article/conversational-ai-chatbot-with-huggingface-transformers-in-python
+#
+###
+
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
