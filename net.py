@@ -2,9 +2,6 @@ import socket
 import cv2
 import numpy as np
 
-HOST = ''
-PORT = 3000
-
 def recvall(sock, count):
     buf = b''
     while count:
@@ -17,21 +14,24 @@ def recvall(sock, count):
 def recvint(sock): 
   return int.from_bytes(recvall(sock, 4), byteorder='little')
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-print('Socket created')
-
-s.bind((HOST,PORT))
-print('Socket bind complete')
-s.listen(10)
-print('Socket now listening')
-
-conn, addr=s.accept()
-
-print('Socket connected')
-
-out = cv2.VideoWriter('out.mp4', cv2.VideoWriter_fourcc(*'XVID'), 20, (512, 512))
-
 def listen():
+  HOST = ''
+  PORT = 25567
+
+  s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  print('Socket created')
+
+  s.bind((HOST,PORT))
+  print('Socket bind complete')
+  s.listen(10)
+  print('Socket now listening')
+
+  conn, addr=s.accept()
+
+  print('Socket connected')
+
+  out = cv2.VideoWriter('out.mp4', cv2.VideoWriter_fourcc(*'XVID'), 20, (512, 512))
+
   while True:
       length = recvint(conn)
       stringData = recvall(conn, int(length))

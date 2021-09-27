@@ -1,5 +1,6 @@
 import net
 import bot
 
-bot.connect("dumb")
+my_bot = bot.connect("dumb")
+wait = input()
 net.listen()

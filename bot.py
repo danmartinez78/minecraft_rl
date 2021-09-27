@@ -8,7 +8,7 @@ def connect(BOT_USERNAME):
 
   @On(bot, 'spawn')
   def onspawn(*a):
-    mineflayerViewer(bot, { 'output': '127.0.0.1:3000', 'frames': -1, 'width': 512, 'height': 512, 'firstPerson': True, 'port': 3000 })
-    print('server started on *:3000')
+    mineflayerViewer(bot, { 'output': '127.0.0.1:25567', 'width': 512, 'height': 512, 'firstPerson': True, 'port': 25568 })
+    print('server started on *:25567')
 
   return bot

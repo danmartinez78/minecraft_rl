@@ -15,6 +15,6 @@ bot = mineflayer.createBot({ 'host': '192.168.0.229', 'port': 25566, 'username':
 
 @On(bot, 'spawn')
 def onspawn(*a):
-    mineflayerViewer(bot, { 'firstPerson': True, 'port': 3000 })
-    print('server started on *:3000')
+    mineflayerViewer(bot, { 'firstPerson': True, 'port': 25567 })
+    print('server started on *:25567')
 
